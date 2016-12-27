@@ -1,23 +1,15 @@
 $("body").keydown(function(keydownEvent) {
-  if (keydownEvent.keyCode === 39) {
+  if (keydownEvent.keyCode === 13) {
     goForward(100);
+    turnLeft();
   } 
 })
 
-$("body").keydown(function(keydownEvent) {
-  if (keydownEvent.keyCode === 38) {
-    goUp(100)
-  } 
-})
+function sides(n) {
+  for (i = 0; i < n; i++) {
+    goForward(100)
+    turnLeftStar(n);
+  }
+}
 
-$("body").keydown(function(keydownEvent) {
-  if (keydownEvent.keyCode === 37) {
-    goBackwards(100);
-  } 
-})
-
-$("body").keydown(function(keydownEvent) {
-  if (keydownEvent.keyCode === 40) {
-    goDown(100);
-  } 
-})
+sides(10)

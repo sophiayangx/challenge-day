@@ -1,5 +1,5 @@
 var heading = 0
-var position = {x: 100, y: 200};
+var position = {x: 200, y: 300};
 var turtle = $("#turtle");
 var turtleCage = $(".turtle-cage")
 
@@ -11,75 +11,12 @@ function turnLeft(n) {
   heading = heading + 90
 }
 
-//function turnRightStar(n) {
-//  heading = heading - 36
-//}
-//
-//function turnLeftStar(n) {
-//  heading = heading + 108
-//}
-
-function goDown(distance) {
-  var radians = -1 * heading * (Math.PI/180);
-  var yIncrement = -Math.cos(radians) * distance;
-  var xIncrement = Math.sin(radians) * distance;        
-
-  var origPosition = {x: position.x, y: position.y}; 
-  var origHeading = heading + 90;
-
-  position.x = position.x + xIncrement;
-  position.y = position.y + yIncrement;
-
-  turtle.animate({
-    left: position.x, 
-    bottom: position.y,
-  },{
-    complete : function() {
-      insertLine(origPosition, origHeading, distance)
-    }
-  })
+function turnRightStar(n) {
+  heading = heading - 36
 }
 
-function goBackwards(distance) {
-  var radians = -1 * heading * (Math.PI/180);
-  var yIncrement = Math.sin(radians) * distance;
-  var xIncrement = -Math.cos(radians) * distance;        
-
-  var origPosition = {x: position.x, y: position.y}; 
-  var origHeading = heading + 180;
-
-  position.x = position.x + xIncrement;
-  position.y = position.y + yIncrement;
-
-  turtle.animate({
-    left: position.x, 
-    bottom: position.y,
-  },{
-    complete : function() {
-      insertLine(origPosition, origHeading, distance)
-    }
-  })
-}
-
-function goUp(distance) {
-  var radians = -1 * heading * (Math.PI/180);
-  var yIncrement = Math.cos(radians) * distance;
-  var xIncrement = Math.sin(radians) * distance;        
-
-  var origPosition = {x: position.x + xIncrement, y: position.y + yIncrement}; 
-  var origHeading = heading + 90;
-
-  position.x = position.x + xIncrement;
-  position.y = position.y + yIncrement;
-
-  turtle.animate({
-    left: position.x, 
-    bottom: position.y,
-  },{
-    complete : function() {
-      insertLine(origPosition, origHeading, distance)
-    }
-  })
+function turnLeftStar(n) {
+  heading = heading + 108
 }
 
 function goForward(distance) {    
@@ -101,6 +38,7 @@ function goForward(distance) {
       insertLine(origPosition, origHeading, distance)
     }
   })
+
 }
 
 function insertLine(start, angle, distance) {
